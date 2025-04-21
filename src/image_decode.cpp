@@ -96,6 +96,7 @@ namespace bimg
 		LodePNGState state;
 		lodepng_state_init(&state);
 		state.decoder.color_convert = 0;
+		state.decoder.ignore_end = 1;
 
 		uint8_t* data = NULL;
 		const uint32_t lodePngError = lodepng_decode(&data, &width, &height, &state, (uint8_t*)_data, _size);
