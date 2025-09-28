@@ -1,5 +1,5 @@
 /*
- * Copyright 2011-2024 Branimir Karadzic. All rights reserved.
+ * Copyright 2011-2025 Branimir Karadzic. All rights reserved.
  * License: https://github.com/bkaradzic/bimg/blob/master/LICENSE
  */
 
@@ -31,13 +31,13 @@
 		}                                             \
 	BX_MACRO_BLOCK_END
 
-#define _BIMG_ASSERT(_condition, _format, ...)                                                                 \
-	BX_MACRO_BLOCK_BEGIN                                                                                       \
-		if (!BX_IGNORE_C4127(_condition)                                                                       \
-		&&  bx::assertFunction(bx::Location::current(), "ASSERT " #_condition " -> " _format, ##__VA_ARGS__) ) \
-		{                                                                                                      \
-			bx::debugBreak();                                                                                  \
-		}                                                                                                      \
+#define _BIMG_ASSERT(_condition, _format, ...)                                                                    \
+	BX_MACRO_BLOCK_BEGIN                                                                                          \
+		if (!BX_IGNORE_C4127(_condition)                                                                          \
+		&&  bx::assertFunction(bx::Location::current(), 0, "ASSERT " #_condition " -> " _format, ##__VA_ARGS__) ) \
+		{                                                                                                         \
+			bx::debugBreak();                                                                                     \
+		}                                                                                                         \
 	BX_MACRO_BLOCK_END
 
 #include <bimg/bimg.h>
